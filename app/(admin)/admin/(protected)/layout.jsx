@@ -5,13 +5,15 @@ import React from "react";
 
 const Layout = ({ children }) => {
   return (
-    <AdminProvider>
-      <Header />
-      <div className="flex h-screen overflow-hidden">
-        <Sidebar />
-        <main className="flex-1 overflow-hidden pt-16 px-5">{children}</main>
-      </div>
-    </AdminProvider>
+    <div>
+      <AdminProvider>
+        <Header />
+        <div className="flex h-screen overflow-hidden">
+          <Sidebar />
+          <div className="flex-1 overflow-y-scroll pt-16 px-5">{children}</div>
+        </div>
+      </AdminProvider>
+    </div>
   );
 };
 

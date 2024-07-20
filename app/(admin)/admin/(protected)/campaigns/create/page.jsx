@@ -1,7 +1,13 @@
+"use client";
+import CampaignForm from "@/components/CampaignForm";
 import React from "react";
 
 const CreateCampaign = () => {
-  return <div>CreateCampaign</div>;
+  return (
+    <div>
+      <CampaignForm />
+    </div>
+  );
 };
 
 export default CreateCampaign;

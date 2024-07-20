@@ -15,7 +15,33 @@ export const campaignApi = createApi({
       }),
       providesTags: ["campaign"],
     }),
+    getCampaign: builder.query({
+      query: () => ({
+        url: "donation_campaign/list",
+      }),
+      providesTags: ["campaign"],
+    }),
+    createCampaign: builder.mutation({
+      query: (body) => ({
+        url: "donation_campaign/add",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["campaign"],
+    }),
+    updateCampaign: builder.mutation({
+      query: (body) => ({
+        url: "donation_campaign/add",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["campaign"],
+    }),
   }),
 });
 
-export const { useGetAllCampaignQuery } = campaignApi;
+export const {
+  useGetAllCampaignQuery,
+  useCreateCampaignMutation,
+  useUpdateCampaignMutation,
+} = campaignApi;
