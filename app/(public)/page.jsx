@@ -1,4 +1,5 @@
 "use client";
+import LoginModel from "@/components/LoginModel";
 import React from "react";
 
 import "swiper/css";

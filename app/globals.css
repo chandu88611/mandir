@@ -67,6 +67,29 @@
     @apply bg-background text-foreground;
   }
 }
+/* 
+@layer utilities {
+  .input-phone {
+    @apply mt-2 h-11 rounded-md px-3 text-sm border  placeholder:text-dark-600 !important;
+  }
+} */
+
+.PhoneInputInput {
+  outline: none;
+  margin-left: 4px;
+  font-size: 14px;
+  border: #d2d2d2 solid 1px;
+  border-radius: 5px;
+  padding: 8px 10px;
+  display: flex;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.PhoneInputInput::placeholder {
+  /* color: #1a1d21; */
+}
+
 .container {
   width: 1200px;
   padding-right: 15px;

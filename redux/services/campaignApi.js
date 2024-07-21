@@ -7,7 +7,7 @@ export const CAMPAIGN_API = "campaignApi";
 export const campaignApi = createApi({
   reducerPath: CAMPAIGN_API,
   baseQuery: apiBaseQuery,
-  tagTypes: ["campaign"],
+  tagTypes: ["campaign", "login"],
   endpoints: (builder) => ({
     getAllCampaign: builder.query({
       query: () => ({
@@ -37,6 +37,22 @@ export const campaignApi = createApi({
       }),
       invalidatesTags: ["campaign"],
     }),
+    sentOtp: builder.mutation({
+      query: (body) => ({
+        url: "/users/sendOtp",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["login"],
+    }),
+    verifyOtp: builder.mutation({
+      query: (body) => ({
+        url: "/users/verifyOTP",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["login"],
+    }),
   }),
 });
 
@@ -44,4 +60,6 @@ export const {
   useGetAllCampaignQuery,
   useCreateCampaignMutation,
   useUpdateCampaignMutation,
+  useSentOtpMutation,
+  useVerifyOtpMutation,
 } = campaignApi;
