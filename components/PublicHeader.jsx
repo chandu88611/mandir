@@ -1,9 +1,12 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
+import LoginModel from "./LoginModel";
 
 const PublicHeader = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="supports-backdrop-blur:bg-background/60 fixed left-0 right-0 top-0 z-20 border-b bg-background/95 backdrop-blur">
       <nav className="flex h-14 items-center justify-between px-4">
@@ -24,10 +27,13 @@ const PublicHeader = () => {
       </div> */}
 
         <div className="flex items-center gap-2">
-          <Button variant="default">Login</Button>
+          <Button variant="default" onClick={() => setOpen(true)}>
+            Login
+          </Button>
           {/* <ThemeToggle /> */}
         </div>
       </nav>
+      <LoginModel open={open} onClose={() => setOpen(false)} />
     </div>
   );
 };

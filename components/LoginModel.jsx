@@ -51,11 +51,11 @@ const LoginModel = ({ open, onClose }) => {
     if (verifyOtpSuccess) {
       localStorage.setItem("authToken", data?.token);
       // close model fun
-      // onClose();
+      onClose();
     }
 
     return () => {};
-  }, [verifyOtpSuccess, data?.token, reset]);
+  }, [verifyOtpSuccess, data?.token, onClose]);
 
   const phoneForm = useFormik({
     initialValues: {
@@ -82,7 +82,7 @@ const LoginModel = ({ open, onClose }) => {
   });
 
   return (
-    <Dialog open={true} className="bg-[#fff0e2]">
+    <Dialog open={open} onOpenChange={onClose} className="bg-[#fff0e2]">
       <DialogContent className="sm:max-w-md px-16">
         <DialogHeader className={"pb-4"}>
           {stepCount ? (
