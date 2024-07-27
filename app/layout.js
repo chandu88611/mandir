@@ -12,8 +12,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <link rel="icon" href="/fav.png" />
+      </head>
       <body className={inter.className}>
         <StoreProvider>{children}</StoreProvider>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       </body>
     </html>
   );

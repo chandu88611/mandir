@@ -16,8 +16,8 @@ export const campaignApi = createApi({
       providesTags: ["campaign"],
     }),
     getCampaign: builder.query({
-      query: () => ({
-        url: "donation_campaign/list",
+      query: (id) => ({
+        url: `donation_campaign/get-by-id/${id}`,
       }),
       providesTags: ["campaign"],
     }),
@@ -53,6 +53,14 @@ export const campaignApi = createApi({
       }),
       invalidatesTags: ["login"],
     }),
+    createEnquiry: builder.mutation({
+      query: (body) => ({
+        url: "/enquiry/create",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["enquiry"],
+    }),
   }),
 });
 
@@ -62,4 +70,6 @@ export const {
   useUpdateCampaignMutation,
   useSentOtpMutation,
   useVerifyOtpMutation,
+  useLazyGetCampaignQuery,
+  useCreateEnquiryMutation
 } = campaignApi;

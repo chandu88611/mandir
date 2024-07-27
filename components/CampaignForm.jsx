@@ -42,7 +42,7 @@ const CampaignForm = ({ campaignId }) => {
 
   useEffect(() => {
     if (isSuccess) {
-      router.push("/admin/campaign");
+      router.push("/admin/campaigns");
     }
 
     return () => {};

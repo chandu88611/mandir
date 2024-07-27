@@ -1,43 +1,73 @@
 "use client";
-import LoginModel from "@/components/LoginModel";
-import React from "react";
-
+import FormModal from "@/components/AddCampaignForm";
+import FAQ from "@/components/FAQAccordian";
+import Testimonials from "@/components/Testimonial";
+import Donations from "@/components/WhytoDonate";
+import FundraisingBanner from "@/components/YourCampaign";
+import { useGetAllCampaignQuery } from "@/redux/services/campaignApi";
+import Link from "next/link";
+// import Footer from "@/components/Footer";
+import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 // import "swiper/css/navigation";
+// import 'swiper/components/navigation/navigation.min.css';
+// import 'swiper/components/pagination/pagination.min.css';
 
 import { Navigation, Pagination, Autoplay, Parallax } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const HeroSlider = () => {
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const slides = [
     {
       id: 1,
       background:
-        "https://images.unsplash.com/photo-1578934191836-ff5f608c2228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80",
+        "/images/back1.webp",
       title: "GUITAR CLASSES FOR KIDS",
       text: "Want to see your kid become more expressive?",
     },
     {
       id: 2,
       background:
-        "https://images.unsplash.com/photo-1579003087287-997fd4d18771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "/images/back4.webp",
       title: "GUITAR CLASSES FOR KIDS",
       text: "Want to see your kid become more expressive?",
     },
     {
       id: 3,
       background:
-        "https://images.unsplash.com/photo-1579003087287-997fd4d18771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "/images/back3.webp",
       title: "GUITAR CLASSES FOR KIDS",
       text: "Want to see your kid become more expressive?",
     },
   ];
+  const paginationRef = useRef(null);
+const {data:campaigns}=useGetAllCampaignQuery()
+console.log(campaigns)
+  useEffect(() => {
+    if (paginationRef.current) {
+      paginationRef.current.classList.add('custom-swiper-pagination');
+    }
+  }, [paginationRef]);
 
+  const faqs = [
+    { question: 'What is Devaseva?', answer: 'Devaseva is a platform that...' },
+    { question: 'What are various services offered by Devaseva?', answer: 'We offer...' },
+    { question: 'How can I trust Devaseva?', answer: 'You can trust us because...' },
+    { question: 'Will I receive the same benefits if I am not physically present?', answer: 'Yes, you will receive...' },
+    { question: 'Who conducts the pujas?', answer: 'The pujas are conducted by...' },
+    { question: 'Where do you conduct the rituals?', answer: 'The rituals are conducted...' },
+    // Add more FAQs as needed
+  ];
   return (
     <section>
-      <header className="hero-slider hero-style w-full">
+      <div className=" w-full ">
         <Swiper
           navigation={true}
           pagination={{ clickable: true }}
@@ -52,53 +82,52 @@ const HeroSlider = () => {
         >
           {slides.map((slide) => (
             <SwiperSlide key={slide.id} className="h-full w-full">
-              <div
-                className="slide-inner slide-bg-image"
-                style={{ backgroundImage: `url(${slide.background})` }}
-              >
-                <div className="container">
-                  <div data-swiper-parallax="300" className="slide-title">
-                    <h2>{slide.title}</h2>
-                  </div>
-                  <div data-swiper-parallax="400" className="slide-text">
-                    <p>{slide.text}</p>
-                  </div>
-                  <div className="clearfix"></div>
-                  <div data-swiper-parallax="500" className="slide-btns">
-                    <a href="#" className="theme-btn-s2">
-                      Register now
-                    </a>
-                    <a href="#" className="theme-btn-s3">
-                      <i className="fas fa-chevron-circle-right"></i> Get Info
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <img
+                className="h-80 md:h-[605px] bg-center bg-no-repeat bg-cover w-full"
+                src={slide.background}
+              />
+              
             </SwiperSlide>
           ))}
         </Swiper>
-      </header>
-      <div className="h-14 py-10 px-40">
-        <h1 className="text-3xl font-bold text-center">Campaigns</h1>
-        <div className="min-h-96">
+      </div>
+
+<Donations/>
+    <FundraisingBanner/>
+
+      <div className="py-10 px-3  bg-center bg-cover" 
+      style={{backgroundImage:"url(/images/back.png)"}}
+      >
+        <h1 className="text-3xl font-bold text-center text-red-500">Campaigns</h1>
+        <p className="w-full md:w-[60%] mx-auto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae reiciendis distinctio aliquam quas minus accusantium optio accusamus rem. Aut atque numquam fuga eum est provident praesentium at cumque mollitia debitis!</p>
+        <img src="/images/back2.png" className="mx-auto" alt="" srcset="" />
+        <div className="min-h-96 px-2 w-full md:w-[80%] mx-auto">
           <Swiper
             slidesPerView={1}
-            spaceBetween={10}
+            // spaceBetween={10}
             navigation={true}
+            
             pagination={{
               clickable: true,
+              el: '.swiper-pagination',
+              bulletClass: 'swiper-pagination-bullet',
+              bulletActiveClass: 'swiper-pagination-bullet-active',
             }}
             breakpoints={{
+              480: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
               640: {
                 slidesPerView: 2,
                 spaceBetween: 20,
               },
               768: {
-                slidesPerView: 4,
+                slidesPerView: 2,
                 spaceBetween: 40,
               },
               1024: {
-                slidesPerView: 5,
+                slidesPerView: 3,
                 spaceBetween: 50,
               },
             }}
@@ -109,58 +138,63 @@ const HeroSlider = () => {
             loop
             speed={1000}
             modules={[Autoplay, Pagination, Navigation]}
-            className="mySwiper"
+            className="w-full my-3 "
           >
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1 br
-              <br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-              Slide 1<br />
-            </SwiperSlide>
+            {campaigns?.campaigns?.map((data,i)=>(
 
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1
+            <SwiperSlide className="flex items-center w-full justify-center h-96 mb-6 ">
+            <div
+  class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark ">
+  <a href="#!">
+    <img
+      className="rounded-t-lg w-full h-[200px]"
+      src={data?.featured_image_base_url}
+      alt="" />
+  </a>
+  <div class="p-6 text-surface dark:text-white">
+    <h5 class="mb-2 text-xl leading-tight font-bold">{data?.temple_name}</h5>
+    <p class="mb-4 text-base">
+    {data?.description}
+    </p>
+
+    <div className="mt-4">
+              <div className="flex justify-between items-center">
+                <span className="text-orange-500 font-bold">{Math.round((Math.round(data?.donated_amount) / Math.round(data?.target_amount)) * 100)}% raised</span>
+                <span className="text-gray-700">{data?.end_date}</span>
+              </div>
+              <input
+                type="range"
+                value={Math.round((Math.round(data?.donated_amount) / Math.round(data?.target_amount)) * 100)}
+                className="w-full mt-2"
+                readOnly
+              />
+            </div>
+    <Link href={`/campaign/${data?.id}`}>
+    <button className=" w-full bg-gradient-to-r from-red-500 via-pink-500 to-yellow-500 hover:via-brown-500 text-white font-bold py-2 px-4 rounded">
+      Donate Now
+    </button>
+    </Link>
+  </div>
+</div>
+              
+            
             </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1
-            </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1
-            </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1
-            </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1
-            </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1
-            </SwiperSlide>
-            <SwiperSlide className="flex items-center justify-center h-96">
-              Slide 1
-            </SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+            ))}
+
+             
+            
+
+            <div ref={paginationRef} className="swiper-pagination"></div>
           </Swiper>
         </div>
       </div>
+<div className="px-3 md:px-10 my-4 w-full md:w-[70%] mx-auto">
+<h2 className="text-2xl font-bold text-center ">FAQs</h2>
+<p className="text-center">Clear you all your doubts here regarding how things work</p>
+      <FAQ />
+</div>
+<Testimonials/>
+<FormModal open={open} onClose={handleClose} />
     </section>
   );
 };

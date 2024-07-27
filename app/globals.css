@@ -413,3 +413,41 @@ a:hover {
     font-size: 13px;
   }
 }
+
+
+/* src/swiper-custom.css */
+.custom-swiper-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.swiper-pagination-bullet {
+  width: 40px;
+  height: 20px;
+  background-color: red;
+  border-radius: 4px;
+  margin: 0 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: darkred;
+  opacity: 1;
+}
+
+
+@media (min-width: 768px) {
+  .sticky-donation-card {
+    position: static;
+    top:50px ;
+  }
+}
+
+@media (max-width: 767px) {
+  .sticky-donation-card {
+    position: relative;
+  }
+}

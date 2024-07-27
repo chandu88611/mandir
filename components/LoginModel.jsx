@@ -94,7 +94,7 @@ const LoginModel = ({ open, onClose }) => {
             </DialogTitle>
           ) : (
             <DialogTitle className="text-center">
-              Start Your Journey{" "}
+              Start to Donate{" "}
             </DialogTitle>
           )}
         </DialogHeader>
@@ -135,6 +135,7 @@ const LoginModel = ({ open, onClose }) => {
               type="button"
               onClick={() => phoneForm.handleSubmit()}
               variant="secondary"
+              className="!text-white !bg-red-500"
             >
               {sendOtpLoading ? <CircularProgress size={16} /> : "Submit"}
             </Button>
@@ -161,7 +162,7 @@ const CapturePhoneNumber = ({ form }) => {
 const CaptureOtp = ({ form }) => {
   return (
     <InputOTP
-      maxLength={4}
+      maxLength={6}
       onChange={(value) => form.setFieldValue("otp", value)}
     >
       <InputOTPGroup>
@@ -169,6 +170,8 @@ const CaptureOtp = ({ form }) => {
         <InputOTPSlot index={1} />
         <InputOTPSlot index={2} />
         <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
       </InputOTPGroup>
     </InputOTP>
   );
