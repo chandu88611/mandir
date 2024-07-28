@@ -153,9 +153,9 @@ console.log(campaigns)
   </a>
   <div class="p-6 text-surface dark:text-white">
     <h5 class="mb-2 text-xl leading-tight font-bold">{data?.temple_name}</h5>
-    <p class="mb-4 text-base">
+    <div class="mb-4 text-base h-28 overflow-auto vertical-scroller">
     {data?.description}
-    </p>
+    </div>
 
     <div className="mt-4">
               <div className="flex justify-between items-center">

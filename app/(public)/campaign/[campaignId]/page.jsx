@@ -122,9 +122,9 @@ const DonationPage = () => {
                   className="w-full h-40 object-cover rounded"
                 />
                 <h3 className="mt-4 text-xl font-bold">{data?.name}</h3>
-                <p className="mt-2 text-gray-700">
+                <div className="mt-2 text-gray-700 !h-32 overflow-auto">
                   {data?.description}
-                </p>
+                </div>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-orange-500 font-bold">₹{data?.amount}</span>
                   <button className="py-2 px-4 bg-orange-500 text-white rounded">Add +</button>
@@ -135,9 +135,9 @@ const DonationPage = () => {
               {/* Repeat the above block for other donation items */}
             </div>
 
-            <div className="mt-10">
+            <div className="mt-10 border-2 p-3 rounded">
               <h2 className="text-3xl font-bold mb-4">Story</h2>
-              <p className="text-gray-700 leading-relaxed">The Plight of Vrindavan’s Widows...</p>
+              <p className="text-gray-700 leading-relaxed">{campaign?.data?.campaign?.about}</p>
               {/* Repeat the above paragraph for other story contents */}
             </div>
           </div>

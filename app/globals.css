@@ -441,13 +441,32 @@ a:hover {
 
 @media (min-width: 768px) {
   .sticky-donation-card {
-    position: static;
-    top:50px ;
+    position: sticky;
+    top:60px ;
   }
 }
 
 @media (max-width: 767px) {
   .sticky-donation-card {
-    position: relative;
+    /* position: relative; */
   }
+}
+
+
+ 
+.vertical-scroller::-webkit-scrollbar {
+  width: 3px; /* Width of the scrollbar */
+}
+
+.vertical-scroller::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+.vertical-scroller::-webkit-scrollbar-thumb {
+  background: #f8aa19;
+  width: 3px; /* Background of the scrollbar thumb */
+}
+
+.vertical-scroller::-webkit-scrollbar-thumb:hover {
+  background: #ffa115; /* Background of the scrollbar thumb on hover */
 }
