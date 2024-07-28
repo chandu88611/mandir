@@ -7,7 +7,7 @@ const TermsOfUsePage = () => {
         <section className="mb-8">
           <h1 className="text-4xl font-bold text-center mb-4">Terms of Use</h1>
           <p className="text-gray-700 leading-7">
-            This document is an electronic record under the Information Technology Act, 2000. It doesn't require physical or digital signatures.
+            This document is an electronic record under the Information Technology Act, 2000. It does not require physical or digital signatures.
           </p>
         </section>
 
@@ -23,7 +23,7 @@ const TermsOfUsePage = () => {
             <li>Initiating campaigns in partnership with renowned temples or individuals.</li>
           </ul>
           <p className="text-gray-700 leading-7 mt-2">
-            By accessing MandirProject, you agree to the Terms of Use and Privacy Policy. If you disagree, do not use MandirProject. These terms may be updated at MandirProject's discretion and are enforceable as any written agreement.
+            By accessing MandirProject, you agree to the Terms of Use and Privacy Policy. If you disagree, do not use MandirProject. These terms may be updated at MandirProjects discretion and are enforceable as any written agreement.
           </p>
         </section>
 

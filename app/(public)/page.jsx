@@ -142,7 +142,7 @@ console.log(campaigns)
           >
             {campaigns?.campaigns?.map((data,i)=>(
 
-            <SwiperSlide className="flex items-center w-full justify-center h-96 mb-6 ">
+            <SwiperSlide className="flex items-center w-full justify-center h-96 mb-6 " key={i+"1"}>
             <div
   class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark ">
   <a href="#!">

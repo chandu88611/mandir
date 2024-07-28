@@ -7,17 +7,17 @@ const PrivacyPolicyPage = () => {
         <section className="mb-8">
           <h1 className="text-4xl font-bold text-center mb-4">Privacy Policy</h1>
           <p className="text-gray-700 leading-7">
-            MandirProject ("Company") values your privacy. This Privacy Policy explains how we collect, use, and protect your information.
+            MandirProject  values your privacy. This Privacy Policy explains how we collect, use, and protect your information.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-orange-500 mb-3">Definitions</h2>
           <p className="text-gray-700 leading-7">
-            - "Site" is www.MandirProject.com.<br />
-            - "Service" refers to donation services via the Site.<br />
-            - "We," "us," and "our" mean the Company.<br />
-            - "You" means the user.
+            - Site is www.MandirProject.com.<br />
+            - Service refers to donation services via the Site.<br />
+            - We, us, and our mean the Company.<br />
+            - You means the user.
           </p>
         </section>
 

@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <StoreProvider>{children}</StoreProvider>
-        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        {/* <script src="https://checkout.razorpay.com/v1/checkout.js"></script> */}
       </body>
     </html>
   );

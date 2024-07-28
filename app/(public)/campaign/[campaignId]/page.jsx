@@ -113,9 +113,9 @@ const DonationPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
 
-              {campaign?.data?.subdonations?.map((data)=>(
+              {campaign?.data?.subdonations?.map((data,i)=>(
 
-              <div className="bg-white rounded-lg shadow-lg p-4">
+              <div className="bg-white rounded-lg shadow-lg p-4" key={i+"dfv"}>
                 <img
                   src={data?.featured_image}
                   alt="Donation Item"

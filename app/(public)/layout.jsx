@@ -249,7 +249,7 @@ const layout = ({ children }) => {
                 href="javascript:;"
                 className="text-base font-normal max-lg:text-center text-gray-600 whitespace-nowrap transition-all duration-300 hover:text-yellow-800 focus-within:outline-0 focus-within:text-yellow-800"
               >
-            FAQ's
+            FAQs
               </a>
             </li>
           </ul>

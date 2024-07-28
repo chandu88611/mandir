@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import LoginModel from "./LoginModel";
 import { HiUserCircle, HiOutlineLogout } from 'react-icons/hi';
@@ -25,16 +25,25 @@ const PublicHeader = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+const [token,setToken]=useState()
+useEffect(()=>{
 
+  if (typeof window !== 'undefined') {
+
+    setToken(localStorage?.getItem('authToken'));
+  }
+},[])
   const handleLogout = async () => {
     try {
-      const token = localStorage.getItem('authToken');
       await axios.post('https://temple-donation.onrender.com/api/users/logout', {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
-      localStorage.removeItem('authToken');
+      if (typeof window !== 'undefined') {
+
+        localStorage?.removeItem('authToken');
+      }
       // Redirect or update state to reflect logout
       setIsOpen(false); // Close the dropdown menu
     } catch (error) {
@@ -60,7 +69,7 @@ const PublicHeader = () => {
           <button onClick={handleOpen} className=" w-full text-[12px] bg-gradient-to-r from-red-500 via-pink-500 to-yellow-500 hover:via-brown-500 text-white font-bold py-1 px-2 rounded-full">
             Start Campaign
           </button>
-          {localStorage?.getItem("authToken") ? (
+          {token ? (
             <div className="relative">
               <button
                 className="flex items-center focus:outline-none"

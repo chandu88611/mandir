@@ -49,7 +49,10 @@ const LoginModel = ({ open, onClose }) => {
   }, [isSuccess, reset]);
   useEffect(() => {
     if (verifyOtpSuccess) {
-      localStorage.setItem("authToken", data?.token);
+      if (typeof window !== 'undefined') {
+
+        localStorage?.setItem("authToken", data?.token);
+      }
       // close model fun
       onClose();
     }
